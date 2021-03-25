@@ -5,8 +5,6 @@ export const request = async (url, option = {}) => {
   if (response.ok) {
     return response;
   }
-
-  throw response.status;
 };
 
 export const getPostOption = (

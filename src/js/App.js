@@ -8,7 +8,6 @@ import Stations from './components/stations/Stations.js';
 import Lines from './components/lines/Lines.js';
 import Sections from './components/sections/Sections.js';
 
-import { snackbar } from './utils/snackbar.js';
 import { getLocalStorageItem } from './utils/storage.js';
 import { request } from './utils/api.js';
 import {
@@ -21,11 +20,9 @@ import {
 
 class App {
   #isLoggedIn;
-  #showSnackbar;
 
   constructor() {
     this.#isLoggedIn = false;
-    this.#showSnackbar = snackbar();
   }
 
   init() {
@@ -61,16 +58,13 @@ class App {
   _mountComponent() {
     this.header = new Header({
       switchURL: this.switchURL.bind(this),
-      showSnackbar: this.#showSnackbar.bind(this),
     });
     this.home = new Home();
     this.login = new Login({
       switchURL: this.switchURL.bind(this),
-      showSnackbar: this.#showSnackbar.bind(this),
     });
     this.signup = new SignUp({
       switchURL: this.switchURL.bind(this),
-      showSnackbar: this.#showSnackbar.bind(this),
     });
     this.stations = new Stations();
     this.sections = new Sections();
@@ -95,7 +89,7 @@ class App {
     const component = this.components[href];
     const state = { isLoggedIn: this.#isLoggedIn };
 
-    component.init(state);
+    await component.init(state);
     this.router.renderPage(href, component.getPageInfo());
     component.initDOM();
   }

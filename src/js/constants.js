@@ -7,6 +7,7 @@ export const ACTIONS = {
   USER: '/members/me',
   LOGIN: '/login/token',
   DUPLICATED_EMAIL: '/members/check-validation?email=',
+  STATIONS: '/stations',
 };
 
 export const PATH = {
@@ -28,6 +29,7 @@ export const SELECTOR = {
   SNACK_BAR: '.snackbar',
   LOGIN_FORM: 'form[name="login"]',
   SIGNUP_FORM: 'form[name="signup"]',
+  ADD_STATION_FORM: 'form[name="add-station"]',
   SIGNUP_FORM_SUBMIT: '#signup-form-submit',
   MESSAGE: '.message',
   NAME_MESSAGE: '.name-message',
@@ -36,6 +38,7 @@ export const SELECTOR = {
   PASSWORD_CONFIRM_MESSAGE: '.password-confirm-message',
   PASSWORD: '#password',
   PASSWORD_CONFIRM: '#password-confirm',
+  STATION_LIST: '#station-list',
 };
 
 export const CLASS_NAME = {
